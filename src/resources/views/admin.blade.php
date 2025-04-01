@@ -29,7 +29,7 @@
       </div>
       <div class="search-form__category">
         <select class="search-form__category-select" name="category_id">
-          <option disabled selected>お問い合わせの種類</option>
+          <option disabled selected>お問い合わせの種類</option> <!--disabled selectedは、最初にそれが表示されるけれど、ユーザーはそれを選択できないようになる-->
           @foreach($categories as $category)
           <option value="{{ $category->id }}" @if( request('category_id')==$category->id ) selected @endif
             >{{$category->content }}
@@ -43,15 +43,15 @@
         <input class="search-form__reset-btn btn" type="submit" value="リセット" name="reset">
       </div>
     </form>
-
-    <div class="export-form">
-      <form action="{{'/export?'.http_build_query(request()->query())}}" method="post">
+<!--エクスポート機能とページネーション-->
+    <div class="export-form"><!--/exportというURLにリクエストを送信。http_build_query(request()->query())は、現在のリクエストの検索条件等をURLエンコードされた文字列に変換する。検索条件で絞った内容がエクスポートできるようになる-->
+      <form action="{{'/export?'.http_build_query(request()->query())}}" method="post"><!--methodがpostなのは、データの取得だけでなく、ファイルの生成やダウンロードという処理を行うため。-->
         @csrf
         <input class="export__btn btn" type="submit" value="エクスポート">
-      </form>
-      {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}
+      </form><!--appends(request()->query())で、ページネーションを使用する際も検索条件が保たれる。-->
+      {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}<!--vendor.pagination.customは、カスタムのページネーションビューを使用していることを示している。-->
     </div>
-
+<!--表-->
     <table class="admin__table">
       <tr class="admin__row">
         <th class="admin__label">お名前</th>
@@ -78,9 +78,9 @@
           <a class="admin__detail-btn" href="#{{$contact->id}}">詳細</a>
         </td>
       </tr>
-
-      <div class="modal" id="{{$contact->id}}">
-        <a href="#!" class="modal-overlay"></a>
+<!--モーダルウィンドウ-->
+      <div class="modal" id="{{$contact->id}}"><!--id属性には、お問い合わせのIDが設定されており、詳細ボタンのリンクからモーダルウィンドウを開くときに使用-->
+        <a href="#!" class="modal-overlay"></a><!--モーダルの背景を覆うオーバーレイ。href="#!"は、リンクを押したらページが飛ぶっていう動作を無効にするために使う。-->
         <div class="modal__inner">
           <div class="modal__content">
             <form class="modal__detail-form" action="/delete" method="post">
@@ -127,7 +127,7 @@
                 <label class="modal-form__label" for="">お問い合わせ内容</label>
                 <p>{{$contact->detail}}</p>
               </div>
-              <input type="hidden" name="id" value="{{ $contact->id }}">
+              <input type="hidden" name="id" value="{{ $contact->id }}"><!--削除するお問い合わせ内容のIDを送信するための隠しフィールド-->
               <input class="modal-form__delete-btn btn" type="submit" value="削除">
 
             </form>

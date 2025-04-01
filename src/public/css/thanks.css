@@ -1,12 +1,12 @@
-.header {
+.header { /*これを書いておけば、app.blade.phpでヘッダーを書いていても、ここには表示されないようになる*/
   display: none;
 }
 
-.thanks-page {
+.thanks-page { /*「お問い合わせありがとうございました」とHOMEボタン*/
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100vh; /*要素の高さをビューポートの高さの100%に設定。これにより要素が画面全体の中央に表示される*/
 }
 
 .thanks-page__message {
@@ -14,22 +14,22 @@
   font-size: 24px;
 }
 
-.thanks-page__btn {
+.thanks-page__btn { /*.btnはcommon.cssで設定されてるので場所のみ*/
   margin: 32px auto 0;
 }
 
-.thanks-page-bg__inner {
+.thanks-page-bg__inner { /*背景の文字*/
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: -1;
+  z-index: -1; /*要素を、他の要素の背面に配置する*/
   width: 100%;
   text-align: center;
   font-family: serif;
   opacity: 0.05;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /*要素を中央揃えにするための調整を行う*/
 }
 
 .thanks-page-bg__text{
-  font-size: 18vw;
+  font-size: 18vw; /*フォントの大きさをビューポートの18%に設定。画面幅に応じてThankyouの文字の大きさが変わる*/
 }

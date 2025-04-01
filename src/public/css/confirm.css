@@ -1,12 +1,12 @@
-.confirm-form__inner {
+.confirm-form__inner { /*題名を除いた本体*/
   margin: 32px auto 0;
-  width: 74%;
+  width: 74%; /*ここで％を設定しておけば、画面幅変えられても構造が保たれる*/
   font-size: 16px;
 }
 
 .confirm-form__table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /*テーブルの境界線を結合する*/
 }
 
 .confirm-form__row {
@@ -14,15 +14,15 @@
 }
 
 .confirm-form__label,
-.confirm-form__data {
+.confirm-form__data { /*テーブル内でのスペース*/
   padding: 16px 48px;
 }
 
-.confirm-form__label {
-  width: calc(100% / 3);
+.confirm-form__label { /*カラムのところ*/
+  width: calc(100% / 3); /*表全体の1/3*/
   background-color: #BAA899;
   color: #FFF;
-  text-align: left;
+  text-align: left; /*上でpadding設定してるのでマジの端にはいかない。*/
   font-weight: 400;
 }
 
@@ -31,9 +31,37 @@
   justify-content: center;
   margin-top: 32px;
 
-  gap: 32px;
+  gap: 32px; /*送信ボタンと修正ボタンの間を空ける*/
 }
 
 .confirm-form__back-btn {
-  text-decoration:underline;
+  text-decoration:underline; /*テキストに下線を設定*/
 }
+
+/*最後のボタンについては、もしくは
+.form__button {
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.form__button-submit {
+    padding: 5px;
+    width: 10%;
+    border: none;
+    background: #82756A;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.form__button-back {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.form__back {
+    color: #8B7969;
+}*/

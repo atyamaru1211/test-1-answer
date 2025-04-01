@@ -5,18 +5,19 @@
 @endsection
 
 @section('content')
-<div class="contact-form">
+<div class="contact-form"> <!--お問い合わせフォーム全体を囲む-->
   <h2 class="contact-form__heading content__heading">Contact</h2>
-  <div class="contact-form__inner">
+  <div class="contact-form__inner"> <!--本体全体-->
     <form action="confirm" method="post">
       @csrf
+      <!--お名前-->
       <div class="contact-form__group contact-form__name-group">
-        <label class="contact-form__label" for="name">
+        <label class="contact-form__label" for="name"> <!--for=nameは、id=nameと関連付ける。labelを使ってこうすることで、「お名前」っていう文字をクリックしても入力のあの線が出てくれる。-->
           お名前<span class="contact-form__required">※</span>
         </label>
-        <div class="contact-form__name-inputs">
+        <div class="contact-form__name-inputs"> <!--inputが２つあるのでinputsに。-->
           <input class="contact-form__input contact-form__name-input" type="text" name="first_name" id="name"
-            value="{{ old('first_name') }}" placeholder="例：山田">
+            value="{{ old('first_name') }}" placeholder="例：山田"> <!--もし、確認画面から戻った場合にも値を保持したい場合は、$contact['last_name'] ?? をoldの前に入れる-->
           <input class="contact-form__input contact-form__name-input" type="text" name="last_name" id="name"
             value="{{ old('last_name') }}" placeholder="例：太郎">
         </div>
@@ -30,13 +31,14 @@
         </div>
       </div>
 
+      <!--性別-->
       <div class="contact-form__group">
         <label class="contact-form__label">
           性別<span class="contact-form__required">※</span>
         </label>
-        <div class="contact-form__gender-inputs">
-          <div class="contact-form__gender-option">
-            <label class="contact-form__gender-label">
+        <div class="contact-form__gender-inputs"> <!--ラジオボタン全体（３つとも）-->
+          <div class="contact-form__gender-option"> <!--それぞれ。この場合は●男性のところ-->
+            <label class="contact-form__gender-label"> <!--ラジオボタンも、labelで丸と文字を囲っとく。-->
               <input class="contact-form__gender-input" name="gender" type="radio" id="male" value="1" {{
                 old('gender')==1 || old('gender')==null ? 'checked' : '' }}>
               <span class="contact-form__gender-text">男性</span>
@@ -63,7 +65,8 @@
           @enderror
         </p>
       </div>
-
+      
+      <!--メールアドレス-->
       <div class="contact-form__group">
         <label class="contact-form__label" for="email">
           メールアドレス<span class="contact-form__required">※</span>
@@ -83,7 +86,7 @@
         </label>
         <div class="contact-form__tel-inputs">
           <input class="contact-form__input contact-form__tel-input" type="tel" name="tel_1" id="tel"
-            value="{{ old('tel_1') }}">
+            value="{{ old('tel_1') }}"> <!--「電話番号」って押したら、まずは最初の四角(入力欄)にあの棒が来てほしいから、ここにid=tel。-->
           <span>-</span>
           <input class="contact-form__input contact-form__tel-input" type="tel" name="tel_2" value="{{ old('tel_2') }}">
           <span>-</span>

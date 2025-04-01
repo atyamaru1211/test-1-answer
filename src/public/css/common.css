@@ -14,13 +14,13 @@ input::placeholder {
 
 .app {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-direction: column; /*ページ全体を縦方向にフレックスボックスで配置*/
+  height: 100%; /*ページ全体の高さをブラウザウィンドウの高さに合わせる。*/
 }
 
 /* ヘッダー */
 .header {
-  display: grid;
+  display: grid; /*グリッドレイアウト。row(横)とcolumn(縦)で分割するやつ。*/
   align-items: center;
   padding: 16px 0;
   height: 80px;
@@ -28,15 +28,15 @@ input::placeholder {
   text-align: center;
   font-family: serif;
 
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr); /*グリッドの列を３つに分割し、それぞれの幅を均等にする*/
+  grid-template-rows: 1fr; /*グリッドの行を１つにする*/
 }
 
 .header__heading {
   font-weight: lighter;
   font-size: 32px;
 
-  grid-column: 2;
+  grid-column: 2; /*上でまず３つに分けており、そのうちの2列目に配置する*/
 }
 
 .header__link {
@@ -47,15 +47,15 @@ input::placeholder {
   color: #D9C6B5;
   text-decoration: none;
 
-  grid-column: 3;
+  grid-column: 3; /*3列目に配置する*/
 }
 
 /* コンテンツ */
 .content {
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: center;
+  flex-direction: column; /*flex-directionは並ぶ向きを設定できる。columnで縦という意味。上から下にどんどん配置されていく*/
+  flex-grow: 1; /*要素が利用可能なスペースを埋めるよう可能な限り拡大。*/
+  justify-content: center; /*水平方向に、どう並べるか。centerは中央寄せのこと*/
   padding: 48px;
 }
 
@@ -77,7 +77,7 @@ input::placeholder {
   cursor: pointer;
 }
 
-/* ページネーション */
+/* ページネーション */ /*ここじゃなくてもよくね？*/
 .pagination {
   display: flex;
   justify-content: center;

@@ -6,14 +6,14 @@
 
 @section('content')
 <div class="confirm-form">
-  <h2 class="confirm-form__heading content__heading">Confirm</h2>
+  <h2 class="confirm-form__heading content__heading">Confirm</h2><!--content__headingはapp.blade.phpで設定されてる-->
   <div class="confirm-form__inner">
     <form action="/thanks" method="post">
       @csrf
       <table class="confirm-form__table">
         <tr class="confirm-form__row">
           <th class="confirm-form__label">お名前</th>
-          <td class="confirm-form__data">{{ $contacts['first_name'] }}&nbsp;{{ $contacts['last_name'] }}</td>
+          <td class="confirm-form__data">{{ $contacts['first_name'] }}&nbsp;{{ $contacts['last_name'] }}</td> <!--&nbsp;は、空白スペースを空けれる-->
           <input type="hidden" name="first_name" value="{{ $contacts['first_name'] }}">
           <input type="hidden" name="last_name" value="{{ $contacts['last_name'] }}">
         </tr>
@@ -65,9 +65,18 @@
       </table>
       <div class="confirm-form__btn-inner">
         <input class="confirm-form__send-btn btn" type="submit" value="送信" name="send">
-        <input class="confirm-form__back-btn" type="submit" value="修正" name="back">
+        <input class="confirm-form__back-btn" type="submit" value="修正" name="back"><!--同じsubmitだけど、name="back"の情報を基に、修正用のページに戻る処理をしてくれる-->
       </div>
     </form>
   </div>
 </div>
 @endsection
+
+<!--最後のボタンのところに関しては、
+                <div class="form__button">
+                    <button class="form__button-submit" type="submit">送信</button>
+                    <div class="form__button-back">
+                        <a class="form__back" href="/?back=true">修正</a>
+                    </div>
+                </div>
+のほうがわかりやすいかも。-->

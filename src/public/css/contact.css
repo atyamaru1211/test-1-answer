@@ -1,24 +1,24 @@
 .contact-form__inner {
-  margin: 32px auto 0;
+  margin: 32px auto 0; /*中身のスペースとか配置を変えずに周りのスペースだけ確保するならmarginがいいのかも*/
   width: 74%;
   font-size: 16px;
 }
 
 /* フォーム */
 .contact-form__group {
-  display: grid;
+  display: grid; /*配置を縦横に分割する*/
   align-items: center;
   margin-top: 32px;
 
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr; /*縦に１対２で分ける。*/
 }
 
 .contact-form__group:first-of-type{
-  margin-top: 0;
+  margin-top: 0; /*上で32pxって設定したけど、最初の要素だけはなしで。*/
 }
 
 .contact-form__group:last-of-type {
-  align-items: flex-start;
+  align-items: flex-start; /*この場合、「お問い合わせ内容」っていう文字を、中央じゃなくて上に配置する。*/
 }
 
 .contact-form__required {
@@ -37,72 +37,75 @@
   align-items: center;
   justify-content: space-between;
 
-  gap: 32px;
+  gap: 32px; /*要素間の間隔をどのぐらい空けるか。*/
 }
 
-.contact-form__name-input {
+.contact-form__name-input { /*姓、名それぞれ*/
   width: 100%;
 }
 
-.contact-form__gender-inputs {
+ /*性別*/
+.contact-form__gender-inputs { /*性別ボタン３つとも。全体*/
   display: flex;
   justify-content: left;
 }
 
-.contact-form__gender-option {
-  margin-right: 64px;
+.contact-form__gender-option { /*1つのボタンと「ラベル」のセット*/
+  margin-right: 64px; /*右側にスペースつくる*/
 }
 
 .contact-form__gender-input {
-  position: absolute;
+  position: absolute; /*position:relativeに対しての位置*/
 
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  -webkit-appearance: none; /*ラジオボタンのデフォルトのスタイルを無効にする*/
+  -moz-appearance: none; /*上と同じ*/
+  appearance: none; /*上と同じ*/
 }
 
 .contact-form__gender-text {
-  display: flex;
+  display: flex; /*「ラベル」の文字と●を横並びにする*/
   align-items: center;
 }
 
-.contact-form__gender-text::before {
+.contact-form__gender-text::before { /*ラジオボタン*/
   display: block;
-  margin-right: 8px;
+  margin-right: 8px; /*ラジオボタンと「ラベル」の間が空く。*/
   width: 24px;
   height: 24px;
   border: 1px solid #8B7969;
   border-radius: 50%;
-  content: '';
+  content: ''; /*ラジオボタンの内容を空にする*/
 }
 
-.contact-form__gender-input:checked+.contact-form__gender-text::before {
+.contact-form__gender-input:checked+.contact-form__gender-text::before { /*ラジオボタンが選択されたときの表示*/
   background: #8B7969;
 }
 
+ /*電話番号*/
 .contact-form__tel-input {
-  width: calc(100%/3);
+  width: calc(100%/3); /*calc()は、CSSで計算を行うための関数。100%/3は、親要素の幅を3で割った値。これで3つの電話番号入力欄が親要素内で均等な幅で表示される*/
   text-align: center;
 }
 
+ /*お問い合わせの種類*/
 .contact-form__select-inner {
-  position: relative;
+  position: relative; /*逆三角の印を配置するために記述*/
 }
 
-.contact-form__select-inner::after {
+.contact-form__select-inner::after { /*逆三角形の印*/
   position: absolute;
   top: 50%;
-  left: 42%;
+  left: 42%; /*ここ、rightにしてもよい*/
   width: 0;
   height: 0;
   border-top: 12px solid #BEB1A6;
   border-right: 12px solid transparent;
   border-left: 12px solid transparent;
-  content: "";
+  content: ""; /*擬似要素*/
   transform: translateY(-50%);
 }
 
-.contact-form__select {
+.contact-form__select { /*セレクト欄*/
   padding: 8px 16px;
   width: 50%;
   background-color: #F4F4F4;
@@ -111,12 +114,12 @@
 
 .contact-form__textarea {
   padding: 8px 16px;
-  height: 144px;
+  height: 144px; /*高さは％じゃなくてpxでも大丈夫*/
   background-color: #F4F4F4;
   color: #BEB1A6;
 }
 
-.contact-form__btn {
+.contact-form__btn { /*そもそもcommon.cssでボタンのスタイルは設定されてるから、ここでは位置のみ*/
   margin: 32px auto 0;
 }
 
@@ -125,11 +128,11 @@
   margin-top: 8px;
   color: #FF9494;
 
-  grid-column: 2;
+  grid-column: 2; /*最初に3分割してるから、そのうちの2つ目の列に配置*/
 }
 
 .contact-form__name-group .contact-form__error-message{
-  display: flex;
+  display: flex; /*名前の入力欄と同じにする*/
   align-items: center;
   justify-content: space-between;
 
@@ -138,5 +141,5 @@
 
 .contact-form__error-message-first-name,
 .contact-form__error-message-last-name {
-  width: 100%;
+  width: 100%; /*名前の入力欄と同じにする*/
 }

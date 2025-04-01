@@ -15,9 +15,9 @@
     <form class="login-form__form" action="/login" method="post">
       @csrf
       <div class="login-form__group">
-        <label class="login-form__label" for="email">メールアドレス</label>
+        <label class="login-form__label" for="email">メールアドレス</label><!--forと(inputの)idを統一させる-->
         <input class="login-form__input" type="mail" name="email" id="email" placeholder="例: test@example.com">
-        <p class="register-form__error-message">
+        <p class="login-form__error-message">
           @error('email')
           {{ $message }}
           @enderror
@@ -26,7 +26,7 @@
       <div class="login-form__group">
         <label class="login-form__label" for="password">パスワード</label>
         <input class="login-form__input" type="password" name="password" id="password" placeholder="例: coachtech1106">
-        <p>
+        <p class="login-form__error-message">
           @error('password')
           {{ $message }}
           @enderror

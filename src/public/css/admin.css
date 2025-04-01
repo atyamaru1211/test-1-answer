@@ -9,15 +9,16 @@ select {
   width: 84%;
 }
 
-/* フォーム */
+/* 検索フォーム */
 .search-form {
   display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
+  align-items: stretch; /*要素を上下に引き延ばす。意味あるのかこれ？*/
+  flex-wrap: wrap; /*横幅が狭くされたら折り返す*/
 
-  gap: 24px;
+  gap: 24px; /*それぞれの間隔を空ける*/
 }
 
+ /*の入力欄*/
 .search-form__keyword-input {
   padding: 8px 12px;
   /* placeholderが表示される最低限の幅を最小値とする */
@@ -32,7 +33,7 @@ select {
 }
 
 .search-form__gender::after,
-.search-form__category::after {
+.search-form__category::after { /*逆三角の印つくる*/
   position: absolute;
   top: 50%;
   right: 8%;
@@ -68,19 +69,19 @@ select {
   background-color: #F4F4F4;
 }
 
-.search-form__date::-webkit-calendar-picker-indicator {
+.search-form__date::-webkit-calendar-picker-indicator { /*-webkit-～は、カレンダーのスタイルを指定するための擬似要素*/
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 1; /*カレンダーアイコンを、他の要素より全面に表示*/
   width: auto;
   height: auto;
   background: transparent;
 }
 
-.search-form__date::after {
+.search-form__date::after { /*逆三角の印*/
   position: absolute;
   top: 50%;
   right: 12px;
@@ -93,19 +94,19 @@ select {
   transform: translateY(-50%);
 }
 
-.search-form__actions {
+.search-form__actions { /*検索、リセットボタン*/
   display: flex;
 
-  gap: 24px;
+  gap: 24px; /*間をあける*/
 }
 
 .search-form__search-btn,
-.search-form__reset-btn {
+.search-form__reset-btn { /*ここも、位置と大きさのみ*/
   padding: 12px;
   width: 90px;
 }
 
-.search-form__reset-btn {
+.search-form__reset-btn { /*今回はリセットボタンだけ色が違うので。*/
   background-color: #D9C6B5;
 }
 
@@ -127,7 +128,7 @@ select {
 .admin__table {
   margin-top: 16px;
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /*境界線を結合。ちゃんと区切りの線が出てくる*/
 }
 
 .admin__row {
@@ -135,17 +136,17 @@ select {
 }
 
 .admin__label,
-.admin__data {
+.admin__data { 
   padding: 16px 8px;
 }
 
 .admin__label:first-of-type,
-.admin__data:first-of-type {
+.admin__data:first-of-type {/*最初だけ左に余白を。この場合は「お名前」のところ*/
   padding-left: 48px;
 }
 
 .admin__label:last-of-type,
-.admin__data:last-of-type {
+.admin__data:last-of-type { /*最後だけ右に余白を。この場合は「」なにもないところ*/
   padding-right: 48px;
 }
 
@@ -156,6 +157,7 @@ select {
   font-weight: 400;
 }
 
+ /*詳細ボタン*/
 .admin__detail-btn {
   padding: 8px 12px;
   border: 1px solid #D9C6B5;
@@ -166,22 +168,22 @@ select {
 
 /* モーダル */
 .modal {
-  position: fixed;
+  position: fixed; /*固定配置*/
   top: 0;
   left: 0;
-  visibility: hidden;
+  visibility: hidden; /*初期状態を非表示*/
   width: 100%;
   height: 100%;
-  opacity: 0;
+  opacity: 0; /*初期状態を非表示*/
 }
 
-.modal:target {
+.modal:target { /*擬似クラス。モーダルウィンドウが表示された場合の*/
   visibility: visible;
   opacity: 1;
 }
 
-.modal-overlay {
-  position: absolute;
+.modal-overlay { /*モーダルウィンドウの背景。今回は特に黒くしたりとかせず。*/
+  position: absolute; /*モーダルウィンドウは画面全体に固定表示されるので、position:relativeを設定する必要はない。*/
   top: 0;
   left: 0;
   display: block;
@@ -189,15 +191,15 @@ select {
   height: 100%;
 }
 
-.modal__inner {
-  position: absolute;
+.modal__inner { /*モーダルウィンドウそのもの。*/
+  position: absolute; /*中央に配置*/
   top: 50%;
   left: 50%;
   width: 50%;
   border: 1px solid #8B7969;
   background-color: #fff;
   box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /*中央に配置*/
 }
 
 .modal__content {
@@ -206,11 +208,11 @@ select {
 }
 
 .modal-form__group {
-  display: grid;
+  display: grid; /*分割するやつ*/
   margin-top: 32px;
 
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
+  grid-template-columns: 1fr 2fr; /*1対2に分け、かつその間は*/
+  gap: 20px; /*20px空ける*/
 }
 
 .modal-form__label {

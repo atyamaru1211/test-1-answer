@@ -26,7 +26,7 @@
   margin-bottom: 32px;
 }
 
-.register-form__label {
+.register-form__label { /*display blockにすることでmarginつけられる*/
   display: block;
   margin-bottom: 8px;
 }
@@ -47,5 +47,5 @@
 }
 
 .register-form__btn {
-  margin: 60px auto 0;
+  margin: 60px auto 0; /*上に60px、左右は中央寄せ、下に0px*/
 }

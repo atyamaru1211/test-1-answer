@@ -28,7 +28,7 @@ class ContactRequest extends FormRequest
             'last_name' => 'required',
             'gender' => 'required',
             'email' => 'required | email',
-            'tel_1' => 'required | max:5 | regex:/^[0-9]+$/',
+            'tel_1' => 'required | max:5 | regex:/^[0-9]+$/', //文字列全体が1文字以上の数字で構成される
             'tel_2' => 'required | max:5 | regex:/^[0-9]+$/',
             'tel_3' => 'required | max:5 | regex:/^[0-9]+$/',
             'address' => 'required',
